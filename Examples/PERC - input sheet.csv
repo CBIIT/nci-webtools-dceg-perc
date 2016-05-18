@@ -1,0 +1,76 @@
+1,Filter coffee,Caffeinated,Light,Arabica,100
+,,Caffeinated,Medium ,Arabica,0
+,,Caffeinated,Dark,Arabica,0
+,,Caffeinated,Light,Unspecified,50
+,,Caffeinated,Medium ,Unspecified,0
+,,Caffeinated,Dark,Unspecified,0
+,,Decaffeinated,Light,Arabica ,0
+,,Decaffeinated,Medium ,Arabica ,150
+,,Decaffeinated,Dark,Arabica ,0
+,,Decaffeinated,Light,Unspecified,0
+,,Decaffeinated,Medium ,Unspecified,0
+,,Decaffeinated,Dark,Unspecified,0
+,Espresso coffee,Caffeinated,Medium ,Arabica ,100
+,,Caffeinated,Dark,Arabica ,0
+,,Decaffeinated,Medium ,Arabica ,0
+,,Decaffeinated,Dark,Arabica ,0
+,Instant coffee,Caffeinated,Medium ,Unspecified,0
+,,Decaffeinated,Medium ,Unspecified,0
+,Boiled coffee,Caffeinated,Medium ,Unspecified,0
+2,Filter coffee,Caffeinated,Light,Arabica,0
+,,Caffeinated,Medium ,Arabica,150
+,,Caffeinated,Dark,Arabica,0
+,,Caffeinated,Light,Unspecified,0
+,,Caffeinated,Medium ,Unspecified,200
+,,Caffeinated,Dark,Unspecified,0
+,,Decaffeinated,Light,Arabica ,0
+,,Decaffeinated,Medium ,Arabica ,0
+,,Decaffeinated,Dark,Arabica ,0
+,,Decaffeinated,Light,Unspecified,0
+,,Decaffeinated,Medium ,Unspecified,0
+,,Decaffeinated,Dark,Unspecified,0
+,Espresso coffee,Caffeinated,Medium ,Arabica ,0
+,,Caffeinated,Dark,Arabica ,0
+,,Decaffeinated,Medium ,Arabica ,0
+,,Decaffeinated,Dark,Arabica ,0
+,Instant coffee,Caffeinated,Medium ,Unspecified,0
+,,Decaffeinated,Medium ,Unspecified,0
+,Boiled coffee,Caffeinated,Medium ,Unspecified,0
+3,Filter coffee,Caffeinated,Light,Arabica,0
+,,Caffeinated,Medium ,Arabica,0
+,,Caffeinated,Dark,Arabica,0
+,,Caffeinated,Light,Unspecified,0
+,,Caffeinated,Medium ,Unspecified,0
+,,Caffeinated,Dark,Unspecified,0
+,,Decaffeinated,Light,Arabica ,0
+,,Decaffeinated,Medium ,Arabica ,0
+,,Decaffeinated,Dark,Arabica ,0
+,,Decaffeinated,Light,Unspecified,0
+,,Decaffeinated,Medium ,Unspecified,0
+,,Decaffeinated,Dark,Unspecified,0
+,Espresso coffee,Caffeinated,Medium ,Arabica ,0
+,,Caffeinated,Dark,Arabica ,0
+,,Decaffeinated,Medium ,Arabica ,0
+,,Decaffeinated,Dark,Arabica ,0
+,Instant coffee,Caffeinated,Medium ,Unspecified,150
+,,Decaffeinated,Medium ,Unspecified,100
+,Boiled coffee,Caffeinated,Medium ,Unspecified,0
+4,Filter coffee,Caffeinated,Light,Arabica,1
+,,Caffeinated,Medium ,Arabica,2
+,,Caffeinated,Dark,Arabica,3
+,,Caffeinated,Light,Unspecified,4
+,,Caffeinated,Medium ,Unspecified,5
+,,Caffeinated,Dark,Unspecified,6
+,,Decaffeinated,Light,Arabica ,7
+,,Decaffeinated,Medium ,Arabica ,8
+,,Decaffeinated,Dark,Arabica ,9
+,,Decaffeinated,Light,Unspecified,10
+,,Decaffeinated,Medium ,Unspecified,11
+,,Decaffeinated,Dark,Unspecified,12
+,Espresso coffee,Caffeinated,Medium ,Arabica ,13
+,,Caffeinated,Dark,Arabica ,14
+,,Decaffeinated,Medium ,Arabica ,15
+,,Decaffeinated,Dark,Arabica ,16
+,Instant coffee,Caffeinated,Medium ,Unspecified,17
+,,Decaffeinated,Medium ,Unspecified,18
+,Boiled coffee,Caffeinated,Medium ,Unspecified,19

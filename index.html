@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cross Talk Analysis Tool</title>
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/common/css/style.css">
+    <link href="css/perc.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/0.7.3/purify.min.js"></script>
+    <script src="https://cdn.rawgit.com/flatlogic/bootstrap-tabcollapse/master/bootstrap-tabcollapse.js"></script>
+
+    <script src="adamant-pastable/adamant-pastable.js"></script>
+    <script src="js/perc.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5 col-sm-12">
+                <div class="well">
+                    <div class="well well-nested">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="inputfile" class="control-label">Coffee Statistics File</label>
+                                        <input type="file" data-target="title2" class="vertical-spacer" id="inputfile" accept=".csv">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-toolbar offset">
+                                <button type="button" id="modelBt" class="btn btn-primary btn-sm pull-right">Calculate</button>
+                                <button type="reset" id="resetBt" class="btn btn-default btn-sm pull-right">Clear</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
+                <nav class="navbar navbar-default">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#crosstalk-tab-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="crosstalk-tab-nav">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="#input" data-toggle="tab" title="Input" data-content="Input">Input</a></li>
+                            <li><a href="#output" data-toggle="tab" title="Output" data-content="Output">Output</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+                <div class="tab-content grey-border">
+                    <div class="tab-pane active" id="input">
+                        <br/>
+                        <div class="input-tables">
+                            <fieldset>
+                                <legend><font size="2"><strong>Coffee Statistics</strong></font></legend>
+                                <div id="dataset1" data-target="inputfile" adamant-pastable="table-input">
+                                </div>
+                                <div class="tablenav">
+                                    <div><button>First</button></div>
+                                    <div><button>Prev</button></div>
+                                    <div><input type="text" value="1"/> of <span class="page-count">2</span></div>
+                                    <div><button>Next</button></div>
+                                    <div><button>Last</button></div>
+                                </div>
+                            </fieldset>
+                            <br/>
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="tab-pane" id="output">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container footer">
+        <div class="center-block">
+            <div class="row">
+                <div class="col-xs-12 well">
+                    <ul class="list-inline">
+                        <li><a href="http://www.cancer.gov/" title="Home" target="_blank">Home</a></li>
+                        <li class="footer-spacer">|</li>
+                        <li><a href="mailto:???@mail.nih.gov" target="_top" title="Support">Support</a></li>
+                        <li class="footer-spacer">|</li>
+                        <li><a href="http://www.cancer.gov/global/web/policies" title="Policies" target="_blank">Policies</a></li>
+                        <li class="footer-spacer">|</li>
+                        <li><a href="http://www.cancer.gov/global/web/policies/accessibility" title="Accessibility" target="_blank">Accessibility</a></li>
+                        <li class="footer-spacer">|</li>
+                        <li><a href="http://cancer.gov/global/viewing-files" title="Viewing Files" target="_blank">Viewing Files</a></li>
+                        <li class="footer-spacer">|</li>
+                        <li><a href="http://www.cancer.gov/global/web/policies/foia" title="FOIA" target="_blank">FOIA</a></li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li><a href="http://www.hhs.gov/" target="_blank">U.S. Department of Health and Human Services</a></li>
+                        <li class="footer-spacer">|</li>
+                        <li><a href="http://www.nih.gov" target="_blank">National Institutes of Health</a></li>
+                        <li class="footer-spacer">|</li>
+                        <li><a href="http://www.cancer.gov/" target="_blank">National Cancer Institute</a></li>
+                        <li class="footer-spacer">|</li>
+                        <li><a href="http://usa.gov" target="_blank">USA.gov</a></li>
+                    </ul>
+                    <div class="text-center">
+                        NIH ... Turning Discovery Into Health<sup>®</sup>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
