@@ -68,7 +68,47 @@ $(function() {
     });
     
     $("#modelBt").on('click', function(e) {
-        console.log(calculator.calculate(inputtable.model.table));
+        var outputdata = calculator.calculate(inputtable.model.table);
+        var target = $("#chemtable");
+        if ($.fn.DataTable.isDataTable("#chemtable")) {
+            target.DataTable().destroy();
+        }
+        var dTbl = target.DataTable({
+            "data": outputdata,
+            "columns": [{
+                data: "id",
+                title: "SUBJECT"
+            },{
+                data: "cafestol",
+                title: "Cafestol (C)"
+            },{
+                data: "kahweol",
+                title: "Kahweol (K)"
+            },{
+                data: "CQA",
+                title: "Caffeolyquinic acid (CQA)"
+            },{
+                data: "diCQA",
+                title: "Dicaffeoylquinic acid (di-CQA)"
+            },{
+                data: "FQA",
+                title: "Feruloylquinic acid (FQA)"
+            },{
+                data: "trigonelline",
+                title: "Trigonelline (T)"
+            },{
+                data: "nicotinic_acid",
+                title: "Nicotinic acid (NA)"
+            }],
+            "destroy": true,
+            "bSort": false,
+            "bFilter": false,
+            "paging": false,
+            "responsive": true,
+            "dom": 't',
+            "scrollX": false
+        });
+        $('[href="#output"]').trigger('click');
     });
 
     $("#resetBt").on('click', function(e) {
@@ -584,12 +624,21 @@ var calculator = (function() {
             chemAmount(page.instant_coffee.decaffeinated,multiplier.instant_coffee.decaffeinated);
             chemAmount(page.boiled_coffee,multiplier.boiled_coffee);
         }
+        outputtable.map(function(page) {
+            page["cafestol"] = parseInt(page["cafestol"])/100;
+            page["kahweol"] = parseInt(page["kahweol"])/100;
+            page["CQA"] = parseInt(page["CQA"])/100;
+            page["diCQA"] = parseInt(page["diCQA"])/100;
+            page["FQA"] = parseInt(page["FQA"])/100;
+            page["trigonelline"] = parseInt(page["trigonelline"])/100;
+            page["nicotinic_acid"] = parseInt(page["nicotinic_acid"])/100;
+        });
         return outputtable;
     };
 
     function chemAmount(amount,chems) {
         for (var index in chems) {
-            if (isNaN(chems[index]))            outputtable[outputtable.length-1][index] += amount*chems[index];
+            outputtable[outputtable.length-1][index] += amount*chems[index];
         }
     };
 })();

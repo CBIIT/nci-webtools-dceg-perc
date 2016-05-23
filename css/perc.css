@@ -27,6 +27,13 @@
     border: 1px solid gray;
     outline: 0px;
 }
+#input input-tables,
+#output {
+    overflow: auto;
+}
+#chemtable th {
+    white-space: nowrap;
+}
 button[disabled] {
     color: gray;
 }
