@@ -73,33 +73,34 @@ $(function() {
         if ($.fn.DataTable.isDataTable("#chemtable")) {
             target.DataTable().destroy();
         }
+        var headers = [{
+            data: "id",
+            title: "SUBJECT"
+        },{
+            data: "cafestol",
+            title: "Cafestol (C)"
+        },{
+            data: "kahweol",
+            title: "Kahweol (K)"
+        },{
+            data: "CQA",
+            title: "Caffeolyquinic acid (CQA)"
+        },{
+            data: "diCQA",
+            title: "Dicaffeoylquinic acid (di-CQA)"
+        },{
+            data: "FQA",
+            title: "Feruloylquinic acid (FQA)"
+        },{
+            data: "trigonelline",
+            title: "Trigonelline (T)"
+        },{
+            data: "nicotinic_acid",
+            title: "Nicotinic acid (NA)"
+        }];
         var dTbl = target.DataTable({
             "data": outputdata,
-            "columns": [{
-                data: "id",
-                title: "SUBJECT"
-            },{
-                data: "cafestol",
-                title: "Cafestol (C)"
-            },{
-                data: "kahweol",
-                title: "Kahweol (K)"
-            },{
-                data: "CQA",
-                title: "Caffeolyquinic acid (CQA)"
-            },{
-                data: "diCQA",
-                title: "Dicaffeoylquinic acid (di-CQA)"
-            },{
-                data: "FQA",
-                title: "Feruloylquinic acid (FQA)"
-            },{
-                data: "trigonelline",
-                title: "Trigonelline (T)"
-            },{
-                data: "nicotinic_acid",
-                title: "Nicotinic acid (NA)"
-            }],
+            "columns": headers,
             "destroy": true,
             "bSort": false,
             "bFilter": false,
@@ -108,11 +109,30 @@ $(function() {
             "dom": 't',
             "scrollX": false
         });
+        var data = headers.map(function(entry) { return entry.title; }).join(",") + "\n";
+        for (var i = 0; i < outputdata.length; i++) {
+            data += headers.map(function(entry) { return outputdata[i][entry.data]; }).join(",") + "\n";
+        }
+        var blob = new Blob([data], { type: "text/csv;charset=UTF-8" });
+        var link = $("#inputblock").append('<div id="filedownload" class="row"><div class="tabledownload col-sm-12"><a href="javascript:void(0);" id="findme">Download Dataset</a></div></div>').find("#findme");
+        link = link.removeAttr("id")[0];
+        link.href = window.URL.createObjectURL(blob);
+        link.download = "perc-output." + Date.now() + ".csv";
+        $('[href="#output"]').parent().removeClass('disabled');
         $('[href="#output"]').trigger('click');
     });
 
     $("#resetBt").on('click', function(e) {
+        window.URL.revokeObjectURL($("#filedownload").find("a").attr("href"));
+        $("#filedownload").remove();
         inputtable.reset();
+        $('[href="#output"]').parent().addClass('disabled');
+        $('[href="#input"]').trigger('click');
+    });
+
+    $('ul.nav').on('click','li.disabled a[data-toggle="tab"]',function(e) {
+        e.preventDefault();
+        return false;
     });
 
     inputtable.reset();
