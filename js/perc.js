@@ -1,11 +1,35 @@
 $(function() {
+    function csvProcessing(data) {
+        inputtable.createModel(data.match(/[^\r\n]+/g).map(function(line) { return line.split(/[,\t]/g).map(function(entry) { return entry.trim(); }); }));
+    };
     function readFile(e) {
         if (window.FileReader && e.files.length > 0) {
             var reader = new FileReader();
-            reader.readAsText(e.files[0]);
-            reader.onload = function (event) {
-                inputtable.createModel(event.currentTarget.result.match(/[^\r\n]+/g).map(function(line) { return line.split(/[,\t]/g).map(function(entry) { return entry.trim(); }); }));
-            };
+            var extension = e.files[0].name.split('.').pop().toLowerCase();
+            switch (extension) {
+                case "xls":
+                    reader.onload = function (event) {
+                        var data = XLS.read(event.target.result,{type:'binary'});
+                        csvProcessing(XLS.utils.make_csv(data.Sheets[data.SheetNames[0]]));
+                    };
+                    reader.readAsBinaryString(e.files[0]);
+                    break;
+                case "xlsx":
+                    reader.onload = function (event) {
+                        var data = XLSX.read(event.target.result,{type:'binary'});
+                        csvProcessing(XLSX.utils.make_csv(data.Sheets[data.SheetNames[0]]));
+                    };
+                    reader.readAsBinaryString(e.files[0]);
+                    break;
+                default:
+                    reader.onload = function (event) {
+                        csvProcessing(event.currentTarget.result);
+                    };
+                    reader.readAsText(e.files[0]);
+                    break;
+            }
+            $('[href="#output"]').parent().addClass('disabled');
+            $('[href="#input"]').trigger('click');
         } else {
             alert("PERC is not compatible with this browser. Please try upgrading your browser or using a different browser.");
         }
@@ -51,7 +75,7 @@ $(function() {
         $("#inputfile").wrap('<form>').closest('form').get(0).reset();
         $("#inputfile").unwrap();
         try {
-            inputtable.createModel(data.match(/[^\r\n]+/g).map(function(line) { return line.split(/[,\t]/g).map(function(entry) { return entry.trim(); }); }));
+            csvProcessing(data.match(/[^\r\n]+/g).map(function(line) { return line.split(/[,\t]/g).map(function(entry) { return entry.trim(); }); }));
         } finally {
             $(target).children("textarea").val("");
         }
