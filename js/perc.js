@@ -92,6 +92,8 @@ $(function() {
     });
     
     $("#modelBt").on('click', function(e) {
+        window.URL.revokeObjectURL($("#filedownload").find("a").attr("href"));
+        $("#filedownload").remove();
         var outputdata = calculator.calculate(inputtable.model.table);
         var target = $("#chemtable");
         if ($.fn.DataTable.isDataTable("#chemtable")) {
